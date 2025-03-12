@@ -2,9 +2,9 @@ import express, { Request, Response } from 'express';
 const app = express();
 import cookieParser from "cookie-parser";
 import cors from "cors"
-import router from './router/routes';
 import globalErrorHandler from './middlewares/globalErrorHandler';
 import NotFound from './middlewares/NotFound';
+import router from './router/routes';
 
 app.use(express.json());
 app.use(cookieParser());
@@ -25,7 +25,7 @@ const test=async(req:Request,res:Response)=>{
 app.get('/', test);
 
 //application routes
-// app.use('/api',router);
+app.use('/api',router);
 
 //
 //gloabal err handler
