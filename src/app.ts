@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
 const app = express();
-// import globalErrorHandler from './middlewares/globalErrorHandler';
-// import NotFound from './middlewares/NotFound';
-// import router from './router/routes';
 import cookieParser from "cookie-parser";
 import cors from "cors"
 import router from './router/routes';
+import globalErrorHandler from './middlewares/globalErrorHandler';
+import NotFound from './middlewares/NotFound';
 
 app.use(express.json());
 app.use(cookieParser());
@@ -30,10 +29,10 @@ app.get('/', test);
 
 //
 //gloabal err handler
-// app.use(globalErrorHandler)
+app.use(globalErrorHandler)
 
 //Not Found Route
-// app.use(NotFound);
+app.use(NotFound);
 
 
 export default app;
