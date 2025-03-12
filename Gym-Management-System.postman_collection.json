@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "dff86a2a-a99d-465b-8bd4-9c0cf73dbb9a",
+		"name": "Gym-Management-System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39850949"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"dafda\",\r\n  \"email\": \"dasw2@wewegmail.com\",\r\n  \"password\": \"asdfs\",\r\n  \"role\":\"trainer\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/auth/register",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin001\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/auth/login",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "create-class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Yoga Class\",\r\n  \"description\": \"A relaxing yoga session\",\r\n  \"date\": \"2024-07-20T10:00:00Z\",\r\n  \"timeSlot\": \"08:00 - 10:00\",\r\n  \"trainer\": \"67d16a75cb80e5ec8d08b099\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/class/create",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"class",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ph-local-url}}/class/",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"class",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{trainee}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"traineeId\":\"67d18a46e476c5834d385ebb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/class/book/67d181ace97ea5f54775a01e",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"class",
+								"book",
+								"67d181ace97ea5f54775a01e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel-booking",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{trainee}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"traineeId\":\"67d18a46e476c5834d385ebb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/class/cancel/67d181ace97ea5f54775a01e",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"class",
+								"cancel",
+								"67d181ace97ea5f54775a01e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-class",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{trainee}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ph-local-url}}/class/delete/67d1932b6f640617e845bf5f",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"class",
+								"delete",
+								"67d1932b6f640617e845bf5f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
