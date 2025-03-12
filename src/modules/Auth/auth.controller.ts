@@ -1,4 +1,5 @@
 import config from "../../config";
+import AppError from "../../errors/AppError";
 import catchAsync from "../../utility/catchAsync";
 import sendResponse from "../../utility/sendResponse";
 import { AuthServices } from "./auth.services";
@@ -9,7 +10,6 @@ const registerUser = catchAsync(async (req, res) => {
     const hashedpass=await bcrypt.hash(password,10);
     const result = await AuthServices.registerUser({name,email,password:hashedpass,role});
     const isTrue: boolean = result ? true : false;
-  
     sendResponse(res, {
       statusCode: isTrue ? 200 : 500,
       success: isTrue,

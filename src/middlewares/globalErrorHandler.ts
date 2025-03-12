@@ -14,9 +14,9 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   let statusCode = 500;
   let message = 'Something went wrong';
 
-  let errorSources: TErrorSource = [
+  let errorDetails: TErrorSource = [
     {
-      path: '',
+      field: '',
       message: 'Something Went Wrong',
     },
   ];
@@ -25,36 +25,36 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     const simplifiedError = handleZodError(err);
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
-    errorSources = simplifiedError.errorSources;
+    errorDetails = simplifiedError.errorDetails;
   } else if (err?.name === 'ValidationError') {
     const simplifiedError = handleValidationError(err);
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
-    errorSources = simplifiedError.errorSources;
+    errorDetails = simplifiedError.errorDetails;
   } else if (err?.name === 'CastError') {
     const simplifiedError = handleCastError(err);
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
-    errorSources = simplifiedError.errorSources;
+    errorDetails = simplifiedError.errorDetails;
   } else if (err?.code === 11000) {
     const simplifiedError = handleDuplicateError(err);
     statusCode = simplifiedError.statusCode;
     message = simplifiedError.message;
-    errorSources = simplifiedError.errorSources;
+    errorDetails = simplifiedError.errorDetails;
   } else if (err instanceof AppError) {
-    statusCode = err.statusCode;
+    statusCode = err.statusCode as number;
     message = err.message;
-    errorSources = [
+    errorDetails = [
       {
-        path: '',
+        field: '',
         message: err.message,
       },
     ];
   } else if (err instanceof Error) {
     message = err.message;
-    errorSources = [
+    errorDetails = [
       {
-        path: '',
+        field: '',
         message: err.message,
       },
     ];
@@ -63,7 +63,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   res.status(statusCode).json({
     success: false,
     message,
-    errorSources,
+    errorDetails,
     stack: config.node_env == 'development' ? err.stack : null,
   });
 };

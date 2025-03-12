@@ -3,17 +3,18 @@ import { TErrorSource, TGenericErrorResponse } from '../interface/error';
 
 
 const handleZodError = (err: ZodError): TGenericErrorResponse => {
-  const errorSources: TErrorSource = err.issues.map((issue: ZodIssue) => {
+  const errorDetails: TErrorSource = err.issues.map((issue: ZodIssue) => {
     return {
-      path: issue?.path[issue.path.length - 1],
+      field: issue?.path[issue.path.length - 1],
       message: issue?.message,
     };
   });
   const statusCode = 400;
   return {
+    success:false,
     statusCode,
     message: 'Zod Validation Error',
-    errorSources,
+    errorDetails
   };
 };
 

@@ -4,9 +4,9 @@ import { TErrorSource } from '../interface/error';
 
 const handleDuplicateError = (err: any) => {
   const match = err.message.match(/"([^"]+)"/);
-  const errorSources: TErrorSource = [
+  const errorDetails: TErrorSource = [
     {
-      path: '',
+      field: '',
       message: `${match[1]} is Already Exists`,
     },
   ];
@@ -14,7 +14,7 @@ const handleDuplicateError = (err: any) => {
   return {
     statusCode,
     message: 'DuplicateError',
-    errorSources,
+    errorDetails,
   };
 };
 export default handleDuplicateError;

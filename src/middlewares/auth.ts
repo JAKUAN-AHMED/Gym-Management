@@ -3,9 +3,8 @@ import { NextFunction, Response, Request } from 'express';
 
 import AppError from '../errors/AppError';
 import config from '../config';
+import httpStatus from "http-status";
 
-
-import httpStatus from 'http-status';
 import catchAsync from '../utility/catchAsync';
 import { TuserRole } from '../modules/User/user.interface';
 import { UserModel } from '../modules/User/user.model';
@@ -18,8 +17,8 @@ const auth = (...requiredRoles: TuserRole[]) => {
     //check if token sent from the client
     if (!token) {
       throw new AppError(
-        500,
-        'forbidden',
+        false,
+        httpStatus.UNAUTHORIZED,
         'You are not authorized to access this route',
       );
     }
@@ -36,17 +35,17 @@ const auth = (...requiredRoles: TuserRole[]) => {
     const user = await UserModel.isUserExistsByCustomEmail(email);
 
     if (!user) {
-      throw new AppError(httpStatus.NOT_FOUND, 'This user is not found !');
+      throw new AppError(false,404,'This user is not found !');
     }
 
     if (requiredRoles && !requiredRoles.includes(role)) {
       throw new AppError(
+        false,
         httpStatus.UNAUTHORIZED,
         'Unauthorized access!',
       );
     }
-
-    req.user = user;
+    req.user =user;
     next();
   });
 };

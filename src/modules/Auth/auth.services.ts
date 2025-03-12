@@ -6,14 +6,14 @@ import { createToken } from "./auth.utils";
 import { TLoginUser } from "./auth.interface";
 import config from "../../config";
 const registerUser = async (payload: IUser) => {
-    return await UserModel.create(payload);
+   return await UserModel.create(payload);
   };
 
   const loginUser = async (payload: TLoginUser) => {
     //   check if user exist
     const user = await UserModel.isUserExistsByCustomEmail(payload.email);
     if (!user) {
-      throw new AppError(httpStatus.NOT_FOUND, 'User not found');
+      throw new AppError(false,httpStatus.NOT_FOUND, 'User not found');
     }
   
     
@@ -23,7 +23,7 @@ const registerUser = async (payload: IUser) => {
     if (
       !(await UserModel.isPasswordMatch(payload.password, storedHashedPassword))
     ) {
-      throw new AppError(httpStatus.UNAUTHORIZED, 'Invalid password');
+      throw new AppError(false,httpStatus.UNAUTHORIZED, 'Invalid password');
     }
   
     // access granted:send accestoken,refreshtoken

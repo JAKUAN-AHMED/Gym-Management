@@ -1,7 +1,8 @@
-import { Model } from "mongoose";
+import { Model, Types } from "mongoose";
 import { USER_ROLE } from "./user.constant";
 export type TRole = 'admin' | 'trainer'|'trainee';
 export interface IUser{
+  id?:Types.ObjectId,
     name:string,
     email:string,
     password:string,
