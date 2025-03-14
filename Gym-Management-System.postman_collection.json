@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "dff86a2a-a99d-465b-8bd4-9c0cf73dbb9a",
 		"name": "Gym-Management-System",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "39850949"
 	},
 	"item": [
@@ -16,23 +16,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"dafda\",\r\n  \"email\": \"dasw2@wewegmail.com\",\r\n  \"password\": \"asdfs\",\r\n  \"role\":\"trainer\"\r\n\r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"trainee3\",\r\n  \"email\": \"trainee3@gmail.com\",\r\n  \"password\":\"trainee3\",\r\n  \"role\":\"trainee\"\r\n\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{ph-local-url}}/auth/register",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"auth",
-								"register"
-							]
-						}
+						"url": "{{ph-local-url}}/auth/register"
 					},
 					"response": []
 				},
@@ -43,23 +34,45 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"email\": \"admin@gmail.com\",\r\n  \"password\": \"admin001\"\r\n   \r\n}",
+							"raw": "{\r\n    \"email\": \"trainee3@gmail.com\",\r\n  \"password\":\"trainee3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{ph-local-url}}/auth/login",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"auth",
-								"login"
-							]
-						}
+						"url": "{{ph-local-url}}/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRyYWluZWUzQGdtYWlsLmNvbSIsInJvbGUiOiJ0cmFpbmVlIiwiaWF0IjoxNzQxOTY5Njk1LCJleHAiOjE3NDQ1NjE2OTV9.e82Ccz6tHsOh2EjAOJDE-Rij9x3-G6HLv6gMfH5vBnY",
+								"type": "text"
+							}
+						],
+						"url": "{{ph-local-url}}/auth/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -75,29 +88,20 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{admin}}",
+								"value": "{{trainer}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Yoga Class\",\r\n  \"description\": \"A relaxing yoga session\",\r\n  \"date\": \"2024-07-20T10:00:00Z\",\r\n  \"timeSlot\": \"08:00 - 10:00\",\r\n  \"trainer\": \"67d16a75cb80e5ec8d08b099\"\r\n  \r\n}\r\n",
+							"raw": "{\r\n  \"name\": \"Yoga Class2\",\r\n  \"description\": \"A relaxing yoga session2\",\r\n  \"date\": \"2024-07-20T10:00:00Z\",\r\n  \"timeSlot\": \"07:00 - 09:00\",\r\n  \"trainer\": \"67d1d323b3b9416eae30f71f\"\r\n  \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{ph-local-url}}/class/create",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"class",
-								"create"
-							]
-						}
+						"url": "https://gym-management-system-jet.vercel.app/api/class/create"
 					},
 					"response": []
 				},
@@ -106,16 +110,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{ph-local-url}}/class/",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"class",
-								""
-							]
-						}
+						"url": "{{ph-local-url}}/class/"
 					},
 					"response": []
 				},
@@ -132,24 +127,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"traineeId\":\"67d18a46e476c5834d385ebb\"\r\n}",
+							"raw": "{\r\n    \"traineeId\":\"67d1d323b3b9416eae30f71f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{ph-local-url}}/class/book/67d181ace97ea5f54775a01e",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"class",
-								"book",
-								"67d181ace97ea5f54775a01e"
-							]
-						}
+						"url": "{{ph-local-url}}/class/book/67d436cb268417be81355fa1"
 					},
 					"response": []
 				},
@@ -166,24 +151,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"traineeId\":\"67d18a46e476c5834d385ebb\"\r\n}",
+							"raw": "{\r\n    \"traineeId\":\"67d1d323b3b9416eae30f71f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{ph-local-url}}/class/cancel/67d181ace97ea5f54775a01e",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"class",
-								"cancel",
-								"67d181ace97ea5f54775a01e"
-							]
-						}
+						"url": "{{ph-local-url}}/class/cancel/67d1d3f256ea60b327198f5a"
 					},
 					"response": []
 				},
@@ -194,21 +169,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{trainee}}",
+								"value": "{{admin}}",
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "{{ph-local-url}}/class/delete/67d1932b6f640617e845bf5f",
-							"host": [
-								"{{ph-local-url}}"
-							],
-							"path": [
-								"class",
-								"delete",
-								"67d1932b6f640617e845bf5f"
-							]
-						}
+						"url": "{{ph-local-url}}/class/delete/67d1d3f256ea60b327198f5a"
 					},
 					"response": []
 				}

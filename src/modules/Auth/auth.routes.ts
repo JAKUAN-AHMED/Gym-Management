@@ -21,5 +21,5 @@ router.post(
   );
 
   //Change pass
-  router.post('/change-password',auth(USER_ROLE.admin,USER_ROLE.trainee,USER_ROLE.trainer),AuthController.changePassword);
+  router.post('/change-password',AuthController.changePassword);
 export const AuthRoutes=router;
