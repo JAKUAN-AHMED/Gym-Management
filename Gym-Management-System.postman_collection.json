@@ -88,7 +88,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{trainer}}",
+								"value": "{{admin}}",
 								"type": "text"
 							}
 						],
