@@ -4,6 +4,7 @@ import catchAsync from "../../utility/catchAsync";
 import sendResponse from "../../utility/sendResponse";
 import { AuthServices } from "./auth.services";
 import bcrypt from "bcrypt";
+import httpStatus from "http-status";
 //register
 const registerUser = catchAsync(async (req, res) => {
     const {name,email,password,role}=req.body;
@@ -39,4 +40,60 @@ const registerUser = catchAsync(async (req, res) => {
       Data: accesToken ? { token: accesToken } : [],
     });
   });
-export const AuthController={registerUser,loginUser}
+
+
+  // log out
+  const logout = catchAsync(async (req, res) => {
+    console.log(req.cookies.refreshToken)
+    if (req.cookies.refreshToken && req.headers.authorization) {
+      res.clearCookie('refreshToken', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+      });
+  
+      sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: 'Logout successful',
+        Data: [],
+      });
+    } else {
+      sendResponse(res, {
+        statusCode: 400,
+        success: false,
+        message: 'No token found. User is not logged in.',
+        Data: [],
+      });
+    }
+  });
+
+
+  //refreshToken
+  const refreshToken = catchAsync(async (req, res) => {
+    const { refreshToken } = req.cookies;
+    const result = await AuthServices.refreshToken(refreshToken);
+  
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Access token is retrieved succesfully!',
+      Data: result,
+    });
+  });
+
+  
+  //Change password
+const changePassword=catchAsync(async (req,res)=>{
+  const {...passwordData}=req.body;
+
+  const result=await AuthServices.changePasswordIntoDB(req.user,passwordData);
+  sendResponse(res,{
+      statusCode:httpStatus.OK,
+      message:"Password changed successfully",
+      success:true,
+      Data:result
+  })
+});
+
+export const AuthController={registerUser,loginUser,logout,refreshToken,changePassword}
