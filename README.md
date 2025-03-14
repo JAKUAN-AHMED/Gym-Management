@@ -104,7 +104,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Register a New User (Admin Only)
 **Endpoint:** `POST /api/auth/register`  
 **Headers:** 
-- `Authorization: Bearer <token>` (Admin only)  
+- `Authorization: <token>` (Admin only)  
 
 **Request_Body:**
 ```json
@@ -156,7 +156,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 User Logout
 **Endpoint:** `POST /api/auth/logout`  
 **Headers:**
-- `Authorization: Bearer <token>`  
+- `Authorization: <token>`  
 
 **Response:**
 ```json
@@ -173,7 +173,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Create a Class
 **Endpoint:** `POST /api/classes/create`  
 **Headers:**
-- `Authorization: Bearer <token>` (Valid user token required)  
+- `Authorization: <token>` (Valid user token required)  
 
 **Request Body:**
 ```json
@@ -226,7 +226,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Get All Classes
 **Endpoint:** `GET /api/classes`  
 **Headers:** 
-- `Authorization: Bearer <token>`  
+- `Authorization:<token>`  
 
 **Response:**
 ```json
@@ -257,7 +257,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Book a Class
 **Endpoint:** `POST /api/classes/book/:classId`  
 **Headers:**
-- `Authorization: Bearer <token>`  
+- `Authorization:  <token>`  
 
 **Request Body:**
 ```json
@@ -293,7 +293,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Cancel a Booking
 **Endpoint:** `DELETE /api/classes/cancel/:classId`  
 **Headers:** 
-- `Authorization: Bearer <token>`  
+- `Authorization:  <token>`  
 
 **Request Body:**
 ```json
@@ -329,7 +329,7 @@ Welcome to the **Gym Management API** documentation.
 ### 🔹 Delete a Class
 **Endpoint:** `DELETE /api/classes/:classId`  
 **Headers:** 
-- `Authorization: Bearer <token>` (Admin only)  
+- `Authorization: <token>` (Admin only)  
 
 **Response:**
 ```json
