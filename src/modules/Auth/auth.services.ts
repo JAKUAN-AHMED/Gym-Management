@@ -95,11 +95,12 @@ const refreshToken = async (token: string) => {
 
 //change pass
 const changePasswordIntoDB = async (
-  userData: JwtPayload,
+  userData:IUser,
   payload: { oldPassword: string; newPassword: string },
 ) => {
   // checking if the user is exist
-  const user = await UserModel.isUserExistsByCustomEmail(userData.email);
+  const user = await UserModel.isUserExistsByCustomEmail(userData?.email);
+  console.log(userData)
 
   if (!user) {
     throw new AppError(false,httpStatus.NOT_FOUND, 'This user is not found !');
