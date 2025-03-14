@@ -44,7 +44,6 @@ const registerUser = catchAsync(async (req, res) => {
 
   // log out
   const logout = catchAsync(async (req, res) => {
-    console.log(req.cookies.refreshToken)
     if (req.cookies.refreshToken && req.headers.authorization) {
       res.clearCookie('refreshToken', {
         httpOnly: true,
