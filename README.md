@@ -136,6 +136,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 User Login
 **Method:** `POST`
+
 **Endpoint:** `/api/auth/login`  
 
 **Request Body:**
@@ -157,8 +158,7 @@ Welcome to the **Gym Management API** documentation.
 }
 ```
 ### 🔹 User Logout
-**Method:**
-`POST`
+**Method:*`POST`
 **Endpoint:** `/api/auth/logout`  
 **Headers:**
 - `Authorization: <token>`  
