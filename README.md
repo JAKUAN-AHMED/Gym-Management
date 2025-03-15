@@ -159,6 +159,7 @@ Welcome to the **Gym Management API** documentation.
 ```
 ### 🔹 User Logout
 **Method:*`POST`
+
 **Endpoint:** `/api/auth/logout`  
 **Headers:**
 - `Authorization: <token>`  
@@ -177,6 +178,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 Create a Class
 **Method:** `POST`
+
 **Endpoint:** `/api/classes/create`  
 **Headers:**
 - `Authorization: <token>` (Valid user token required)  
@@ -231,6 +233,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 Get All Classes
 **Method:** `GET`
+
 **Endpoint:** `/api/classes`  
 **Headers:** 
 - `Authorization:<token>`  
@@ -300,6 +303,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 Cancel a Booking
 **Method:** `PATCH`
+
 **Endpoint:** `/api/classes/cancel/:classId`  
 **Headers:** 
 - `Authorization:  <token>`  
@@ -337,6 +341,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 Delete a Class
 **Method:** `DELETE`
+
 **Endpoint:** `/api/classes/:classId`  
 **Headers:** 
 - `Authorization: <token>` (Admin only)  
