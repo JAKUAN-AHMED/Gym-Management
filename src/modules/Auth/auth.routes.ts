@@ -6,7 +6,7 @@ import auth from "../../middlewares/auth";
 import { USER_ROLE } from "../User/user.constant";
 const router=express.Router();
 
-router.post('/register',validateRequest
+router.post('/register',auth('admin'),validateRequest
     ( registeValidationSchema),AuthController.registerUser)
 router.post('/login',validateRequest(loginValidationSchema),AuthController.loginUser)
 
