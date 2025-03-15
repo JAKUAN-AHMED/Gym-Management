@@ -102,7 +102,8 @@ Welcome to the **Gym Management API** documentation.
 ## 🚀 Authentication
 
 ### 🔹 Register a New User (Admin Only)
-**Method:** `POST`
+**Method:** 
+`POST`
 **Endpoint:** `/api/auth/register`  
 **Headers:** 
 - `Authorization: <token>` (Admin only)  
