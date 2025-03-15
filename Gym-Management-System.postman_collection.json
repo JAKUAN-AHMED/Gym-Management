@@ -13,7 +13,13 @@
 					"name": "register",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{admin}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"name\": \"trainee3\",\r\n  \"email\": \"trainee3@gmail.com\",\r\n  \"password\":\"trainee3\",\r\n  \"role\":\"trainee\"\r\n\r\n}\r\n",
