@@ -266,6 +266,7 @@ Welcome to the **Gym Management API** documentation.
 
 ### 🔹 Book a Class
 **Method:** `POST`
+
 **Endpoint:** `/api/classes/book/:classId`  
 **Headers:**
 - `Authorization:  <token>`  
