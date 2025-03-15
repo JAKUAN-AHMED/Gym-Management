@@ -23,7 +23,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/auth/register"
+						"url": "{{ph-local-url}}/api/api/auth/register"
 					},
 					"response": []
 				},
@@ -41,7 +41,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/auth/login"
+						"url": "{{ph-local-url}}/api/api/auth/login"
 					},
 					"response": []
 				},
@@ -56,7 +56,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{ph-local-url}}/auth/logout"
+						"url": "{{ph-local-url}}/api/api/auth/logout"
 					},
 					"response": []
 				},
@@ -110,7 +110,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{ph-local-url}}/class/"
+						"url": "{{ph-local-url}}/api/class/"
 					},
 					"response": []
 				},
@@ -134,7 +134,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/class/book/67d436cb268417be81355fa1"
+						"url": "{{ph-local-url}}/api/class/book/67d436cb268417be81355fa1"
 					},
 					"response": []
 				},
@@ -158,7 +158,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/class/cancel/67d1d3f256ea60b327198f5a"
+						"url": "{{ph-local-url}}/api/class/cancel/67d1d3f256ea60b327198f5a"
 					},
 					"response": []
 				},
@@ -173,7 +173,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{ph-local-url}}/class/delete/67d1d3f256ea60b327198f5a"
+						"url": "{{ph-local-url}}/api/class/delete/67d1d3f256ea60b327198f5a"
 					},
 					"response": []
 				}
