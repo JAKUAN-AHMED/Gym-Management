@@ -102,7 +102,8 @@ Welcome to the **Gym Management API** documentation.
 ## 🚀 Authentication
 
 ### 🔹 Register a New User (Admin Only)
-**Endpoint:** `POST /api/auth/register`  
+**Method:** `POST`
+**Endpoint:** `/api/auth/register`  
 **Headers:** 
 - `Authorization: <token>` (Admin only)  
 
@@ -133,7 +134,8 @@ Welcome to the **Gym Management API** documentation.
 ```
 
 ### 🔹 User Login
-**Endpoint:** `POST /api/auth/login`  
+**Method:** `POST`
+**Endpoint:** `/api/auth/login`  
 
 **Request Body:**
 ```json
@@ -154,7 +156,8 @@ Welcome to the **Gym Management API** documentation.
 }
 ```
 ### 🔹 User Logout
-**Endpoint:** `POST /api/auth/logout`  
+**Method:** `POST`
+**Endpoint:** `/api/auth/logout`  
 **Headers:**
 - `Authorization: <token>`  
 
@@ -171,7 +174,8 @@ Welcome to the **Gym Management API** documentation.
 ## 📅 Class Management
 
 ### 🔹 Create a Class
-**Endpoint:** `POST /api/classes/create`  
+**Method:** `POST`
+**Endpoint:** `/api/classes/create`  
 **Headers:**
 - `Authorization: <token>` (Valid user token required)  
 
@@ -224,7 +228,8 @@ Welcome to the **Gym Management API** documentation.
 ---
 
 ### 🔹 Get All Classes
-**Endpoint:** `GET /api/classes`  
+**Method:** `GET`
+**Endpoint:** `/api/classes`  
 **Headers:** 
 - `Authorization:<token>`  
 
@@ -255,7 +260,8 @@ Welcome to the **Gym Management API** documentation.
 ## 📌 Class Booking
 
 ### 🔹 Book a Class
-**Endpoint:** `POST /api/classes/book/:classId`  
+**Method:** `POST`
+**Endpoint:** `/api/classes/book/:classId`  
 **Headers:**
 - `Authorization:  <token>`  
 
@@ -291,7 +297,8 @@ Welcome to the **Gym Management API** documentation.
 ---
 
 ### 🔹 Cancel a Booking
-**Endpoint:** `DELETE /api/classes/cancel/:classId`  
+**Method:** `PATCH`
+**Endpoint:** `/api/classes/cancel/:classId`  
 **Headers:** 
 - `Authorization:  <token>`  
 
@@ -327,7 +334,8 @@ Welcome to the **Gym Management API** documentation.
 ---
 
 ### 🔹 Delete a Class
-**Endpoint:** `DELETE /api/classes/:classId`  
+**Method:** `DELETE`
+**Endpoint:** `/api/classes/:classId`  
 **Headers:** 
 - `Authorization: <token>` (Admin only)  
 
