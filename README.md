@@ -158,7 +158,7 @@ Welcome to the **Gym Management API** documentation.
 }
 ```
 ### 🔹 User Logout
-**Method:*`POST`
+**Method:** `POST`
 
 **Endpoint:** `/api/auth/logout`  
 **Headers:**
