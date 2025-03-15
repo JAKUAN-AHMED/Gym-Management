@@ -2,7 +2,7 @@
 
 🚀 **Live Demo**: [Gym Management System](https://gym-management-system-ecru.vercel.app/)  
 
-Welcome to the **Gym Management System**, a backend application designed to manage gym classes, users (trainers and trainees), and bookings. This system allows users to register, login, view, book, and cancel gym classes, while admins can create and delete classes. The project is built with **Node.js**, **Express.js**, **MongoDB**, and **Mongoose**, with strong authentication and role-based access control.
+Welcome to the **Gym Management System**, a backend application designed to manage gym classes, users (trainers and trainees), and bookings. This system allows users to register, login, view, book, and cancel gym classes, while admins can create and delete classes. The project is built with **Node.js**, **Express.js**, **MongoDB**,**TypeScript** and **Mongoose**, with strong authentication and role-based access control.
 
 ---
 
